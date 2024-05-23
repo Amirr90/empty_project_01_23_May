@@ -1,0 +1,92 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
+    id("androidx.navigation.safeargs")
+    id("kotlin-parcelize")
+    id("com.google.devtools.ksp")
+}
+
+android {
+    namespace 'com.emptyprojectt1'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.emptyprojectt1"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.0"
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+}
+
+dependencies {
+    implementation libs.core.ktx
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    implementation libs.navigation.fragment.ktx
+    implementation libs.navigation.ui.ktx
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.test.ext.junit
+    androidTestImplementation libs.espresso.core
+
+
+    //Retrofit
+    implementation(libs.logging.interceptor)
+    implementation(libs.gson)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    //Glide
+    implementation(libs.glide)
+
+    //ePoxy
+    implementation(libs.epoxy)
+    implementation(libs.epoxy.paging3)
+    implementation(libs.epoxy.paging)
+
+    implementation(libs.circleimageview)
+
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.easypermissions)
+
+
+    //Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.dagger.hilt.android.compiler)
+
+
+    //Room
+    implementation("androidx.room:room-ktx:2.6.0")
+    kapt("androidx.room:room-compiler:2.6.0")
+
+}
