@@ -15,6 +15,32 @@ class AppPrefs @Inject constructor(
         application.getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE)
     private var editor: SharedPreferences.Editor = sharedPreferences.edit()
 
+    var token: String?
+        get() {
+            return sharedPreferences.getString("token", null)
+        }
+        set(value) {
+            editor.putString("token", value)
+            commit()
+        }
+    var userId: String?
+        get() {
+            return sharedPreferences.getString("userId", null)
+        }
+        set(value) {
+            editor.putString("userId", value)
+            commit()
+        }
+
+    var refreshToken: String?
+        get() {
+            return sharedPreferences.getString("refreshToken", null)
+        }
+        set(value) {
+            editor.putString("refreshToken", value)
+            commit()
+        }
+
     fun saveValue(key: String, value: String) {
         Log.d("TAG", "saveValue: $key : $value")
         editor.putString(key, value)

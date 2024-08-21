@@ -21,9 +21,9 @@ navigation-ui-ktx = "2.7.7"
 retrofit = "2.9.0"
 room-compiler = "2.6.1"
 room-ktx = "2.6.1"
-ksp="1.8.10-1.0.9"
-hilt="2.48"
-jetBrainsVersion="1.9.22"
+ksp = "1.8.10-1.0.9"
+hilt = "2.48"
+jetBrainsVersion = "1.9.22"
 kotlin1910 = "1.9.10"
 
 

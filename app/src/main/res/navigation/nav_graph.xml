@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/productListScreen">
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -25,4 +25,39 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/productListScreen"
+        android:name="com.login.ui.ProductListScreen"
+        android:label="All Product"
+        tools:layout="@layout/fragment_product_list_screen" />
+    <fragment
+        android:id="@+id/cartScreen"
+        android:name="com.cart.ui.CartScreen"
+        android:label="My Cart"
+        tools:layout="@layout/fragment_cart_screen" />
+    <fragment
+        android:id="@+id/categoryScreen"
+        android:name="com.category.ui.CategoryScreen"
+        android:label="fragment_category_screen"
+        tools:layout="@layout/fragment_category_screen" />
+    <fragment
+        android:id="@+id/singleProductDetailScreen"
+        android:name="com.products.ui.SingleProductDetailScreen"
+        android:label="fragment_single_product_detail_screen"
+        tools:layout="@layout/fragment_single_product_detail_screen" >
+        <argument
+            android:name="product"
+            app:argType="com.products.model.Product" />
+    </fragment>
+    <action android:id="@+id/action_global_singleProductDetailScreen"
+        app:destination="@id/singleProductDetailScreen" />
+    <argument
+        android:name="product"
+        app:argType="com.products.model.Product" />
+    <fragment
+        android:id="@+id/favouriteProductScreen"
+        android:name="com.favourite.ui.FavouriteProductScreen"
+        android:label="fragment_favourite_product_screen"
+        tools:layout="@layout/fragment_favourite_product_screen" /><action android:id="@+id/action_global_cartScreen" app:destination="@id/cartScreen"/>
+
 </navigation>

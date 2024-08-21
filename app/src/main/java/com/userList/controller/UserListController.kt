@@ -17,6 +17,7 @@ class UserListController : TypedEpoxyController<List<User>>() {
                         it.id
                     ).addTo(this)
                 }
+
             }
 
         }

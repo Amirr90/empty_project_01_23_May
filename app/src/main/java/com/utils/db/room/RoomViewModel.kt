@@ -70,7 +70,6 @@ class RoomViewModel @Inject constructor(
         }
     }
 
-
     val users = dao.fetchUser()
 
     private fun saveCustomer() {

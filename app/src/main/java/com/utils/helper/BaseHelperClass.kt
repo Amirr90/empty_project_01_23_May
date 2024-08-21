@@ -17,6 +17,13 @@ fun Response<*>.getResponseAfterValidation(): ApiResponse {
                 ApiResponse.Success(data)
             }
 
+            201 -> {
+                val data = this.body() ?: return ApiResponse.Failed(
+                    errorMsg = "Failed to get Response " + this.code(), responseData = null
+                )
+                ApiResponse.Success(data)
+            }
+
             else -> ApiResponse.Failed(
                 errorMsg = this.message(),
                 responseData = null

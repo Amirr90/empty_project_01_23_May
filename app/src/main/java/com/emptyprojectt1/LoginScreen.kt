@@ -14,6 +14,7 @@ import com.UserListScreen
 import com.emptyprojectt1.databinding.FragmentFirstBinding
 import com.login.loginevent.LoginEvent
 import com.login.viewModel.LoginViewModel
+import com.login2.viewModel.Login2ViewModel
 import com.utils.extensionFunctions.showToast
 import com.utils.flowCollector.collectFlow
 import com.utils.sharedPrefs.AppPrefs
@@ -26,8 +27,8 @@ class LoginScreen : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var viewModel: LoginViewModel
+    private lateinit var viewModel2: Login2ViewModel
 
     @Inject
     lateinit var appPrefs: AppPrefs
@@ -38,6 +39,7 @@ class LoginScreen : Fragment() {
     ): View {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        viewModel2 = ViewModelProvider(this)[Login2ViewModel::class.java]
         return binding.root
 
     }
@@ -50,6 +52,7 @@ class LoginScreen : Fragment() {
         }
 
         setListeners()
+        viewModel2.login()
 
         collectFlow(viewModel.loginUI) {
             print("viewModel.loginUI $it")
@@ -88,7 +91,7 @@ class LoginScreen : Fragment() {
                 }
             }
 
-            btnLogin.setOnClickListener { email ->
+            btnLogin.setOnClickListener {
                 val event = LoginEvent.onLoginButtonClicked
                 viewModel.onEvent(event)
             }

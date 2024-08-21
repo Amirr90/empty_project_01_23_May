@@ -1,8 +1,14 @@
 package com.utils.di
 
 
+import com.cart.repo.CartRepo
+import com.cart.repo.CartRepoImpl
 import com.login.api.Auth
 import com.login.api.LoginWithEmailAndPassword
+import com.login2.repo.Login2Repo
+import com.login2.repo.Login2RepoImpl
+import com.products.repo.ProductsRepo
+import com.products.repo.ProductsRepoImpl
 import com.utils.db.room.repo.SaveUserToRoomDatabase
 import com.utils.db.room.repo.UserRepo
 import com.utils.network.responseHandler.ResponseHandler
@@ -21,10 +27,6 @@ abstract class CustomModules {
 
     @Binds
     @Singleton
-    abstract fun bindsUploadImage(uploadRef: LoginWithEmailAndPassword): Auth
-
-    @Binds
-    @Singleton
     abstract fun bindsResponseHandlerRepo(auth: ResponseHandlerImpl): ResponseHandler
 
 
@@ -32,5 +34,20 @@ abstract class CustomModules {
     @Singleton
     abstract fun bindSaveUserDatabaseRepo(userRef: SaveUserToRoomDatabase): UserRepo
 
+    @Binds
+    @Singleton
+    abstract fun bindLogin2Repo(userRef: Login2RepoImpl): Login2Repo
 
+    @Binds
+    @Singleton
+    abstract fun bindAuth(userRef: LoginWithEmailAndPassword): Auth
+
+
+    @Binds
+    @Singleton
+    abstract fun bindProductRepo(userRef: ProductsRepoImpl): ProductsRepo
+
+    @Binds
+    @Singleton
+    abstract fun bindCartRepo(userRef: CartRepoImpl): CartRepo
 }

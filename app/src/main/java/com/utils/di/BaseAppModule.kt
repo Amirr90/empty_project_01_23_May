@@ -4,8 +4,12 @@ package com.utils.di
 import android.app.Application
 import android.content.Context
 import androidx.room.Room
+import com.cart.CartApi
 import com.login.api.LoginApi
+import com.products.api.ProductApi
+import com.utils.BaseUrls
 import com.utils.db.room.database.AppDatabase
+import com.utils.interceptor.DummyJsonAuthInterceptor
 import com.utils.network.api.NetworkApi
 import com.utils.redux.ApplicationState
 import com.utils.redux.Store
@@ -26,19 +30,22 @@ import javax.inject.Singleton
 object BaseAppModule {
     @Provides
     @Singleton
-    fun provideHttpLogger(): OkHttpClient {
+    fun provideHttpLogger(dummyJsonInterceptor: DummyJsonAuthInterceptor): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder().connectTimeout(100, TimeUnit.SECONDS)
-            .writeTimeout(100, TimeUnit.SECONDS).readTimeout(300, TimeUnit.SECONDS)
-            .addInterceptor(loggingInterceptor).build()
+            .writeTimeout(100, TimeUnit.SECONDS)
+            .readTimeout(300, TimeUnit.SECONDS)
+            .addInterceptor(loggingInterceptor)
+            .addInterceptor(dummyJsonInterceptor)
+            .build()
 
     }
 
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder().baseUrl("https://reqres.in/api/")
+        return Retrofit.Builder().baseUrl(BaseUrls.BASE_URL_DUMMY_JSON)
             .addConverterFactory(GsonConverterFactory.create()).client(okHttpClient).build()
     }
 
@@ -51,6 +58,18 @@ object BaseAppModule {
     @Singleton
     fun provideApiService(retrofit: Retrofit): LoginApi {
         return retrofit.create(LoginApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideProductApiService(retrofit: Retrofit): ProductApi {
+        return retrofit.create(ProductApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCartApiService(retrofit: Retrofit): CartApi {
+        return retrofit.create(CartApi::class.java)
     }
 
 

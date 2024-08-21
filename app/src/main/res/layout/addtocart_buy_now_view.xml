@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:orientation="horizontal"
+    android:weightSum="2">
+
+
+    <TextView
+        android:id="@+id/btnAddToCart"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="#5C6BC0"
+        android:fontFamily="@font/anuphan_medium"
+        android:gravity="center"
+        android:paddingVertical="5dp"
+        android:text="Add To Cart"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:id="@+id/btnBuyNow"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="#66BB6A"
+        android:fontFamily="@font/anuphan_medium"
+        android:gravity="center"
+        android:paddingVertical="5dp"
+        android:text="Buy Now"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>
