@@ -28,8 +28,8 @@ data class Product(
     val images: List<String> = emptyList(),
     val reviews: List<Review> = emptyList(),
     val reviewCount: Int = 0,
-
-    ) : Parcelable
+    val quantity: Int = 1
+) : Parcelable
 
 @Parcelize
 data class Review(

@@ -17,8 +17,10 @@ import com.utils.sharedPrefs.AppPrefs
 import com.utils.useCases.validateEmail
 import com.utils.useCases.validatePassword
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -38,16 +40,29 @@ class LoginViewModel @Inject constructor(
     val alertMsg: LiveData<String> = alert
 
     private val map: HashMap<String, String> = HashMap()
+
+
+    private val loginEvent = MutableStateFlow(Login())
     fun onEvent(event: LoginEvent) {
         when (event) {
             is LoginEvent.onEmailEvent -> {
                 map["email"] = event.email
+                loginEvent.update {
+                    it.copy(
+                        email = event.email
+                    )
+                }
             }
 
             LoginEvent.onLoginButtonClicked -> validateAndLogin()
 
             is LoginEvent.onPasswordEvent -> {
                 map["password"] = event.password
+                loginEvent.update {
+                    it.copy(
+                        password = event.password
+                    )
+                }
             }
         }
     }
@@ -119,4 +134,12 @@ data class LoginError(
     val isLoading: Boolean = false,
     val success: Boolean = false,
     val error: String? = null
+)
+
+
+data class Login(
+    val email: String = "",
+    val emailError: String? = null,
+    val password: String = "",
+    val passwordError: String? = null,
 )

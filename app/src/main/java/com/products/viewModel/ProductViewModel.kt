@@ -108,13 +108,10 @@ class ProductViewModel @Inject constructor(
                     val product = result.responseData as Product
                     val allProducts = store.stateFlow.value.productList
                     store.update {
-                        return@update it.copy(
-                            product = product.toProduct(),
+                        return@update it.copy(product = product.toProduct(),
                             relatedProducts = allProducts.filter { prod ->
-                                prod.category == product.category
-                                        && prod.id != product.id
-                            }
-                        )
+                                prod.category == product.category && prod.id != product.id
+                            })
                     }
                 }
 
@@ -156,24 +153,20 @@ class ProductViewModel @Inject constructor(
         val productUi = if (categoryForHome.isNotEmpty()) {
             productList.filter { it.category == categoryForHome }.map {
                 ProductUI(
-                    product = it,
-                    inCart = inCartIds.contains(it.id)
+                    product = it, inCart = inCartIds.contains(it.id)
                 )
             }
         } else {
             productList.map {
                 ProductUI(
-                    product = it,
-                    inCart = inCartIds.contains(it.id)
+                    product = it, inCart = inCartIds.contains(it.id)
                 )
             }
         }
 
 
         ProductScreenUI(
-            productUI = productUi,
-            categoryList = category,
-            selectedCategory = categoryForHome
+            productUI = productUi, categoryList = category, selectedCategory = categoryForHome
         )
 
     }
@@ -193,4 +186,6 @@ class ProductViewModel @Inject constructor(
             isFav = favProductIds.contains(singleProduct?.id)
         )
     }
+
+
 }

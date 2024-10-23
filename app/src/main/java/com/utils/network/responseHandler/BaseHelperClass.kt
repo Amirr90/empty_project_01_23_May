@@ -1,4 +1,4 @@
-package com.utils.helper
+package com.utils.network.responseHandler
 
 
 import com.utils.network.ApiResponse

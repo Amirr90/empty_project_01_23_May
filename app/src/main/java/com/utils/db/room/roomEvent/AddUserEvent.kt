@@ -6,5 +6,5 @@ sealed class AddUserEvent {
     data class AddressChanged(val address: String) : AddUserEvent()
     data class AgeChanged(val age: String) : AddUserEvent()
     data class CityChanged(val city: String) : AddUserEvent()
-    object SaveUser : AddUserEvent()
+    data object SaveUser : AddUserEvent()
 }

@@ -28,8 +28,7 @@ class CartScreen : Fragment(), ProductClickListener {
     private lateinit var cartController: CartProductController
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCartScreenBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this)[CartViewModel::class.java]
@@ -42,16 +41,22 @@ class CartScreen : Fragment(), ProductClickListener {
 
         super.onViewCreated(view, savedInstanceState)
 
-        binding.cartEpoxyController.setController(controller = cartController)
+        binding.recyclerViewCart.setController(controller = cartController)
 
         collectFlow(viewModel.productInCart) {
             cartController.setData(it)
             binding.apply {
                 cart = it
-                textView16.text = it.totalAmount.appendDollar()
+                orderAmount.text = it.totalAmount.appendDollar()
             }
 
         }
+
+        setListeners()
+    }
+
+    private fun setListeners() {
+
     }
 
     override fun onCartIconClicked(id: Int) {

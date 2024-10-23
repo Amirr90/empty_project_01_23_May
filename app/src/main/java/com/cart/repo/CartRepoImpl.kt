@@ -7,6 +7,9 @@ import com.utils.network.responseHandler.ResponseHandler
 import com.utils.sharedPrefs.AppPrefs
 import javax.inject.Inject
 
+
+const val TAG = "CartRepoImpl"
+
 class CartRepoImpl @Inject constructor(
     private val api: CartApi,
     private val appPrefs: AppPrefs,
@@ -14,7 +17,7 @@ class CartRepoImpl @Inject constructor(
 ) : CartRepo {
     override suspend fun getCartItem(): ApiResponse {
         return try {
-            Log.d("TAG", "userId: ${appPrefs.userId}")
+            Log.d(TAG, "userId: ${appPrefs.userId}")
             val result = api.getCart(appPrefs.userId ?: "")
             handler.handleResponse(result)
         } catch (ex: Exception) {
@@ -23,9 +26,8 @@ class CartRepoImpl @Inject constructor(
     }
 
     override suspend fun updateCart(map: HashMap<String, Any>): ApiResponse {
-
         return try {
-            Log.d("TAG", "updateCart: $map")
+            Log.d(TAG, "updateCart: $map")
             val result = api.updateCart(map)
             handler.handleResponse(result)
         } catch (ex: Exception) {

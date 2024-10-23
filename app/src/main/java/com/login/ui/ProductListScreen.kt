@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.cart.viewModel.CartViewModel
+import com.emptyprojectt1.R
 import com.emptyprojectt1.databinding.FragmentProductListScreenBinding
 import com.navigationController.navigateToProductDetailScreen
 import com.products.controller.ProductScreenController
@@ -26,9 +28,11 @@ class ProductListScreen : Fragment(), ProductClickListener {
     private lateinit var controller: ProductScreenController
 
 
+    val uniqueString = mutableSetOf("")
+
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
         _binding = FragmentProductListScreenBinding.inflate(inflater, container, false)
@@ -53,6 +57,7 @@ class ProductListScreen : Fragment(), ProductClickListener {
         collectFlow(viewModel.isLoading) {
             binding.progressBar5.isVisible = it
         }
+
     }
 
     override fun onCartIconClicked(id: Int) {
@@ -61,5 +66,14 @@ class ProductListScreen : Fragment(), ProductClickListener {
 
     override fun onProductItemClicked(product: Product) {
         navigateToProductDetailScreen(product)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+    }
+
+    override fun onViewAllClicked() {
+        findNavController().navigate(R.id.action_global_allProductListing)
     }
 }

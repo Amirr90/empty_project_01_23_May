@@ -3,9 +3,43 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_blue_600">#FF039BE5</color>
-    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_900">#DB3022</color>
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
     <color name="selected_category_color">#E1F5FE</color>
+
+
+    <!-- Basic Colors -->
+    <color name="gray">#808080</color>
+    <color name="light_gray">#F2F2F2</color>
+    <color name="dark_gray">#4A4A4A</color>
+
+    <!-- Accent Colors -->
+    <color name="primary">#4CAF50</color> <!-- Green color for buttons and highlights -->
+    <color name="primary_dark">#388E3C</color>
+    <color name="accent">#FFC107</color> <!-- Yellow accent color for highlights -->
+
+    <!-- Background Colors -->
+    <color name="background">#FFFFFF</color> <!-- General background color -->
+    <color name="search_background">#F5F5F5</color> <!-- Background color for search bar -->
+    <color name="category_background">#E0E0E0
+    </color> <!-- Light background color for category icons -->
+    <color name="banner_background">#FFEB3B</color> <!-- Background for banner highlighting sale -->
+
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color> <!-- For primary text -->
+    <color name="text_secondary">#757575</color> <!-- For secondary text, like delivery address -->
+    <color name="text_sale">#D32F2F</color> <!-- Red color for highlighting sale text -->
+
+    <!-- Other Colors -->
+    <color name="green">#4CAF50</color>
+    <color name="sale_banner_yellow">#FFF8E1
+    </color> <!-- Light yellow for sale banner background -->
+    <color name="sale_text">#FF5722</color> <!-- Orange text color for sale percentages -->
+    <color name="category_icon_tint">#9E9E9E</color> <!-- Tint for category icons -->
+    <color name="card_background">#FFFFFF
+    </color> <!-- Background color for cards, like product cards -->
+    <color name="button_text">#FFFFFF</color> <!-- Text color for button text -->
+    <color name="notification_badge">#F44336</color> <!-- Red color for notification badge -->
 </resources>

@@ -6,26 +6,6 @@
     app:startDestination="@id/productListScreen">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.emptyprojectt1.LoginScreen"
-        android:label="Login"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.emptyprojectt1.SecondFragment"
-        android:label="Home Screen"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/productListScreen"
         android:name="com.login.ui.ProductListScreen"
         android:label="All Product"
@@ -59,5 +39,15 @@
         android:name="com.favourite.ui.FavouriteProductScreen"
         android:label="fragment_favourite_product_screen"
         tools:layout="@layout/fragment_favourite_product_screen" /><action android:id="@+id/action_global_cartScreen" app:destination="@id/cartScreen"/>
+    <fragment
+        android:id="@+id/profileScreen2"
+        android:name="com.profile.ProfileScreen"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" />
+    <fragment
+        tools:layout="@layout/all_product_listing_screen"
+        android:id="@+id/allProductListing"
+        android:name="com.products.ui.AllProductListing"
+        android:label="AllProductListing" /><action android:id="@+id/action_global_allProductListing" app:destination="@id/allProductListing"/>
 
 </navigation>

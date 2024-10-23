@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="16dp">
+    <!-- Top Bar -->
+
+
+    <ImageView
+        android:id="@+id/icon_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="Location"
+        android:elevation="10sp"
+        android:src="@drawable/ic_location"
+        app:layout_constraintBottom_toBottomOf="@+id/delivery_address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView38" />
+
+    <TextView
+        android:id="@+id/delivery_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-3dp"
+        android:layout_toStartOf="@id/icon_notification"
+        android:gravity="center_vertical"
+        android:text="Salatiga City, Central Java"
+        android:textColor="@color/gray"
+        app:layout_constraintStart_toStartOf="@+id/textView38"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <ImageView
+        android:id="@+id/icon_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="Cart"
+        android:src="@drawable/ic_cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon_notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@id/icon_cart"
+        android:contentDescription="Notification"
+        android:src="@drawable/ic_notification"
+        app:layout_constraintBottom_toBottomOf="@+id/icon_cart"
+        app:layout_constraintEnd_toStartOf="@+id/icon_cart"
+        app:layout_constraintTop_toTopOf="@+id/icon_cart" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Delivery Address"
+        android:textColor="@color/gray"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/icon_location"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

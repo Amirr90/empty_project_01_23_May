@@ -21,12 +21,28 @@ fun loadImage(view: ImageView, imageUrl: String?) {
     }
 }
 
+@BindingAdapter("android:imageUrl")
+fun loadImage(view: ImageView, imageUrl: Int?) {
+    imageUrl?.let {
+        Glide.with(view.context)
+            .load(it)
+            .apply(
+                RequestOptions().placeholder(R.drawable.ic_launcher_foreground)
+                    .error(R.drawable.ic_launcher_foreground)
+            )
+            .into(view)
+    }
+}
+
 @BindingAdapter("android:bindPriceWithAppendDollar")
 fun bindPriceWithAppendDollar(tv: TextView, text: Double) {
     tv.text = text.appendDollar()
 }
 
 @BindingAdapter("android:bindText")
-fun bindText(tv: TextView, text: String) {
-    tv.text = text
+fun bindText(tv: TextView, text: String?) {
+    text?.apply {
+        tv.text = this
+    }
+
 }

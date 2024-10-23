@@ -50,4 +50,10 @@
     <string name="spring_ct">Spring CT</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_existing_card">Select existing card</string>
+    <string name="_1934">**** **** **** 1934</string>
+    <string name="or_input_new_card">Or input new card</string>
+    <string name="card_number">Card number</string>
+    <string name="expiry">Expiry</string>
+    <string name="security_code">Security Code</string>
 </resources>

@@ -9,8 +9,10 @@ class CartProductController(private val cartIconClicked: ProductClickListener) :
     TypedEpoxyController<CartUI>() {
     override fun buildModels(cartData: CartUI?) {
         cartData?.cartProducts?.forEach {
-            CartProductEpoxyModel(it, cartIconClicked)
-                .id(it.id).addTo(this)
+            /*CartProductEpoxyModel(it, cartIconClicked)
+                .id(it.id).addTo(this)*/
+
+            CartProductEpoxyModel2(it, cartIconClicked).id(it.id).addTo(this)
         }
     }
 

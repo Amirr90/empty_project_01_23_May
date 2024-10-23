@@ -7,8 +7,6 @@ data class ProductScreenUI(
     val productUI: List<ProductUI>,
     val categoryList: List<ProductCategoryModel> = emptyList(),
     val selectedCategory: String
-
-
 )
 
 data class ProductUI(

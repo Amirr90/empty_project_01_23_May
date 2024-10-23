@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cartProduct"
+            type="com.products.model.Product" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="8dp">
+
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/itemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Air pods max by Apple"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/itemImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/itemPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="$ 1999,99"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/itemTitle"
+            app:layout_constraintTop_toBottomOf="@id/itemTitle" />
+
+        <!-- Quantity Controls -->
+
+        <ImageView
+            android:id="@+id/deleteBtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/stroke_line_curved"
+            android:padding="5dp"
+            android:src="@drawable/trash"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemTitle" />
+
+        <ImageView
+            android:id="@+id/decreaseQuantity"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/stroke_line_curved"
+            android:padding="3dp"
+            android:src="@drawable/ic_minus"
+            app:layout_constraintBottom_toBottomOf="@+id/increaseQuantity"
+            app:layout_constraintEnd_toStartOf="@+id/quantityText"
+            app:layout_constraintTop_toTopOf="@+id/quantityText" />
+
+        <ImageView
+            android:id="@+id/increaseQuantity"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/stroke_line_curved"
+            android:padding="3dp"
+            android:src="@drawable/ic_plus"
+            app:layout_constraintBottom_toBottomOf="@+id/deleteBtn"
+            app:layout_constraintEnd_toStartOf="@+id/deleteBtn"
+            app:layout_constraintTop_toTopOf="@+id/deleteBtn"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/quantityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="1"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/increaseQuantity"
+            app:layout_constraintEnd_toStartOf="@+id/increaseQuantity"
+            app:layout_constraintTop_toTopOf="@+id/increaseQuantity" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

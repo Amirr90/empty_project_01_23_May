@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(setOf(R.id.productListScreen, R.id.cartScreen))
+
         findViewById<BottomNavigationView>(R.id.bottom_navigation)
             .setupWithNavController(navController)
 
@@ -67,9 +68,8 @@ class MainActivity : AppCompatActivity() {
 
         val mainDestinationChangedListener =
             NavController.OnDestinationChangedListener { _, destination, _ ->
-                binding.bottomNavigation.isVisible =
-                    destination.id == R.id.cartScreen
-                            || destination.id == R.id.productListScreen
+                binding.bottomNavigation.isVisible =/*destination.id == R.id.cartScreen
+                                ||*/ destination.id == R.id.productListScreen
                             || destination.id == R.id.categoryScreen
                             || destination.id == R.id.favouriteProductScreen
             }

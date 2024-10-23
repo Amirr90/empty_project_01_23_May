@@ -3,19 +3,25 @@ package com.cart
 import com.cart.dto.CartResponseDTO
 import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface CartApi {
 
-    @GET("carts/user/{userId}")
+    @GET(GET_CART_QUERY)
     suspend fun getCart(
-        @Path("userId") userId: String
+        @Path(KEY_USER_ID) userId: String
     ): Response<CartResponseDTO>
 
-    @POST("carts/add")
+    @POST(UPDATE_CART)
     suspend fun updateCart(@Body map: HashMap<String, Any>): Response<CartResponseDTO>
+
+
+    companion object {
+        private const val KEY_USER_ID = "userId"
+        private const val GET_CART_QUERY = "carts/user/{$KEY_USER_ID}"
+        private const val UPDATE_CART = "carts/add"
+
+    }
 }
